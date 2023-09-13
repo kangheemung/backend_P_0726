@@ -13,9 +13,9 @@ default: &default
   adapter: mysql2
   encoding: utf8mb4
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: admin
-  password: 123
-  host: 123
+  username: <%= ENV['DATABASE_USERNAME'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  host: <%= ENV['DATABASE_HOST'] %>
 
 
 development:
@@ -54,3 +54,4 @@ production:
   database: backend_production
   username: backend
   password: <%= ENV['BACKEND_DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock
